@@ -43,7 +43,7 @@ for a in letters:
     num = text_clean.count(a)
     total_count += num
 
-print("Total letters:", total_count)
+print("Total letters:", total_count, end="\n")
 
 fre_of_cipher = {}
 for i in range(len(letters)):
@@ -52,25 +52,25 @@ for i in range(len(letters)):
     # fre_of_cipher[letters[i]] = num / total_count * 100
     fre_of_cipher[letters[i]] = num
 
-print("Freq. of cipher:", fre_of_cipher)
+print("Freq. of cipher:", fre_of_cipher, end="\n\n")
 sorted_fre_of_cipher = dict(sorted(fre_of_cipher.items(), key=lambda item: item[1]))
-print("Sorted res. of ciper:", sorted_fre_of_cipher)
+print("Sorted res. of cipher:", sorted_fre_of_cipher, end="\n\n")
 sorted_fre_of_eng_letters = dict(
     sorted(fre_of_eng_letters.items(), key=lambda item: item[1])
 )
-print("Sorted res. of eng:", sorted_fre_of_eng_letters)
+print("Sorted res. of eng:", sorted_fre_of_eng_letters, end="\n\n")
 
 convert_dict = {}
 list_of_ci_key = list(sorted_fre_of_cipher.keys())
 list_of_eng_key = list(sorted_fre_of_eng_letters.keys())
 for i in range(len(list_of_ci_key)):
     convert_dict[list_of_ci_key[i]] = list_of_eng_key[i]
-print("Convert dict.:", convert_dict)
+print("Convert dict.:", convert_dict, end="\n\n")
 
 file = open("./ciphertext.txt", "r")
 line = file.readline()
-print(line)
+print("Input text:", line, end="\n\n")
 decrypt_line = ""
 for alpha in line:
     decrypt_line += list_of_eng_key[list_of_ci_key.index(alpha)]
-print(decrypt_line)
+print("Output text:", decrypt_line)
